@@ -85,7 +85,8 @@ class _HomeScreenState extends State<HomeScreen> {
       spaceBetweenChildren: 5,
       children: [
         SpeedDialChild(
-          child: const Icon(Icons.chrome_reader_mode, color: Colors.white),
+          child: const Icon(Icons.short_text_outlined
+              , color: Colors.white),
           backgroundColor: _color,
           onTap: () {
             Navigator.of(context)
@@ -98,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
           labelBackgroundColor: Colors.black38,
         ),
         SpeedDialChild(
-          child: const Icon(Icons.create, color: Colors.white),
+          child: const Icon(Icons.list_alt, color: Colors.white),
           backgroundColor: _color,
           onTap: () {
             Navigator.of(context)
@@ -362,13 +363,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                             children: [
                                               Text(textNotes![index].titleText!,
                                                   style: textStyle16Bold()),
-                                              // textNotes![index].noteText != ''
+                                              // textNotes![index].isList == false
                                               //     ?
                                               Text(textNotes![index]
                                                           .noteText!,
                                                       style: textStyle14()),
                                                   // : Text(
-                                                  //     listNotes![0]
+                                                  //     listNotes![1]
                                                   //         .textFieldText!,
                                                   //     style: textStyle16Bold()),
                                               Row(

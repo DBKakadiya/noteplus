@@ -18,9 +18,9 @@ class DatabaseHelper {
   String colTime = 'time';
 
   String listTodoTable = 'list_Todo_Table';
-  String listColId = 'listId';
-  String listColNoteText = 'listTextFieldText';
-  String listColCheck = 'listCheckBox';
+  String listColId = 'listNoteId';
+  String listColNoteText = 'textFieldText';
+  String listColCheck = 'checkVal';
 
   DatabaseHelper._createInstance();
 
@@ -48,7 +48,7 @@ class DatabaseHelper {
         'CREATE TABLE $todoTable($colId INTEGER PRIMARY KEY AUTOINCREMENT, $colTitleText TEXT, '
         '$colNoteText TEXT, $colDate TEXT, $colTime TEXT)');
     await db.execute(
-        'CREATE TABLE $listTodoTable($colId INTEGER, $listColId INTEGER PRIMARY KEY AUTOINCREMENT, '
+        'CREATE TABLE $listTodoTable($colId INTEGER, $listColId INTEGER PRIMARY KEY, '
         '$listColNoteText TEXT, $listColCheck TEXT)');
   }
 
@@ -131,20 +131,26 @@ class DatabaseHelper {
   Future<List<TextNotes>?> getTodoList() async {
     var todoMapList = await getTodoMapList();
     int count = todoMapList.length;
+    print('-------count----$count---');
     List<TextNotes>? notes = [];
     for (int i = 0; i < count; i++) {
+      print('------mapData----${todoMapList[i]}====');
       notes.add(TextNotes.fromMap(todoMapList[i]));
     }
+    print('----notes----$notes');
     return notes;
   }
 
   Future<List<ListItem>?> getListItem() async {
     var todoList = await getMapListItem();
     int count = todoList.length;
+    print('-------count111----$count---');
     List<ListItem>? notes = [];
     for (int i = 0; i < count; i++) {
+      print('------mapData111----${todoList[i]}====');
       notes.add(ListItem.fromMap(todoList[i]));
     }
+    print('----notes111----$notes');
     return notes;
   }
 //----------------------------------

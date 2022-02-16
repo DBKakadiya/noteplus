@@ -1,26 +1,25 @@
-class ListItem {
+class ListItem{
   int? id;
   int? listNoteId;
   String? textFieldText;
-  bool? checkVal;
-
-  ListItem(this.id,this.listNoteId,this.textFieldText, {this.checkVal = false});
+  String? checkVal;
+  ListItem(this.id,this.listNoteId,this.textFieldText, this.checkVal);
 
   Map<String, dynamic> toMap(){
     var map = <String, dynamic>{
       'id': id,
-      'listId': listNoteId,
-      'listTextFieldText': textFieldText,
-      'listCheckBox': checkVal
+      'listNoteId': listNoteId,
+      'textFieldText': textFieldText,
+      'checkVal': checkVal
     };
     return map;
   }
 
   ListItem.fromMap(Map<String, dynamic> map) {
     id = map['id'];
-    listNoteId = map['listId'];
-    textFieldText = map['listTextFieldText'];
-    checkVal = map['listCheckBox'];
+    listNoteId = map['listNoteId'];
+    textFieldText = map['textFieldText'];
+    checkVal = map['checkVal'];
   }
 
   @override

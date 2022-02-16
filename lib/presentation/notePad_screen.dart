@@ -9,7 +9,6 @@ import 'package:noteplus_demo/model/handler.dart';
 import 'package:noteplus_demo/model/list_Data.dart';
 import 'package:noteplus_demo/model/textNotes.dart';
 import 'package:noteplus_demo/resources/resources.dart';
-import 'package:sqflite/sqflite.dart';
 
 import '../main.dart';
 import 'home_screen.dart';
@@ -48,7 +47,7 @@ class _NotePadScreenState extends State<NotePadScreen> {
 
   DatabaseHelper helper = DatabaseHelper();
   TextNotes textNoteModel = TextNotes.withId(numbers[i], '', '', '', '');
-  ListItem listItemModel = ListItem(numbers[i],0, '');
+  ListItem listItemModel = ListItem(numbers[i],0, '',false.toString());
 
   PreferredSizeWidget appBar(int option) {
     return AppBar(
@@ -212,7 +211,7 @@ class _NotePadScreenState extends State<NotePadScreen> {
                                                         noteList[listIndex]
                                                             .textFieldText.text,
                                                     listItemModel.checkVal =
-                                                        noteList[listIndex].val,
+                                                        noteList[listIndex].val.toString(),
                                                     helper.insertList(listItemModel),
                                                     print('----listItemModel----$listItemModel--')
                                                   },
@@ -356,7 +355,7 @@ class _NotePadScreenState extends State<NotePadScreen> {
         _selectedDate!.day,
         _selectedTime!.hour,
         _selectedTime!.minute);
-    // print('=-=-=-=-=-=$_isSave');
+    print('=-=-=-=-=-=$scheduleTextNotesDateTime');
     var textNoteInfo = TextNotes(
         index == null ? textNoteModel.titleText : savedTextNote.titleText,
         index == null ? textNoteModel.noteText : savedTextNote.noteText,
