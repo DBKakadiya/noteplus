@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:initialLayout="@layout/widget_layout"
+    android:minWidth="105dp"
+    android:minHeight="110dp"
+    android:maxWidth="350dp"
+    android:maxHeight="100dp"
+    android:widgetCategory="home_screen" />
